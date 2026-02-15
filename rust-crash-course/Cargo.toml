@@ -2,7 +2,7 @@
 name = "rust-crash-course"
 version = "0.1.0"
 edition = "2021"
-description = "A practical and exhaustive Rust crash course with lessons, examples, and exercises."
+description = "A practical and comprehensive Rust crash course with lessons, examples, and exercises."
 authors = ["Andres Caicedo <andres.felipe.caicedo.ultengo@outlook.com>"]
 license = "MIT"
 
