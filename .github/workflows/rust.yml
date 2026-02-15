@@ -16,6 +16,7 @@ jobs:
         with:
           toolchain: stable
           profile: minimal
+          components: clippy
       - name: Cache cargo registry
         uses: actions/cache@v4
         with:
@@ -30,7 +31,5 @@ jobs:
         run: cargo test --verbose
         working-directory: rust-crash-course
       - name: Run clippy
-        run: |
-          cargo install --locked clippy-driver || true
-          cargo clippy --all-targets --all-features -- -D warnings
+        run: cargo clippy --all-targets --all-features -- -D warnings
         working-directory: rust-crash-course
