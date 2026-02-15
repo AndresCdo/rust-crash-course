@@ -14,8 +14,18 @@ fn main() {
     println!();
     // Small demo using the library function
     if let Ok(val) = std::env::var("DEMO_VALUE") {
-        if let Ok(n) = val.parse::<f64>() {
-            println!("Demo: golden proportion of {n} = {}", rust_crash_course::find_golden_proportion(n));
+        match val.parse::<f64>() {
+            Ok(n) => {
+                println!(
+                    "Demo: golden proportion of {n} = {}",
+                    rust_crash_course::find_golden_proportion(n)
+                );
+            }
+            Err(e) => {
+                eprintln!(
+                    "Warning: DEMO_VALUE=\"{val}\" is not a valid number ({e}); skipping demo output."
+                );
+            }
         }
     }
 }
