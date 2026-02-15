@@ -25,9 +25,12 @@ jobs:
           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
       - name: Build
         run: cargo build --verbose
+        working-directory: rust-crash-course
       - name: Run tests
         run: cargo test --verbose
+        working-directory: rust-crash-course
       - name: Run clippy
         run: |
           cargo install --locked clippy-driver || true
           cargo clippy --all-targets --all-features -- -D warnings
+        working-directory: rust-crash-course
